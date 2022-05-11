@@ -1,0 +1,137 @@
+<html>
+	<head>
+		<title>Lissajous</title>
+		<link rel="stylesheet" href="./style/pure-min.css">
+		<link rel="stylesheet" href="./style/grids-responsive-min.css">
+		<link rel="stylesheet" href="./style/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script defer type="module">
+			import {Lissajous} from './scripts/lissajous.js';
+			
+			new Lissajous('canvas');
+		</script>
+	</head>
+	<body>
+		<div class="pure-g title">
+			<div class="pure-u-1">
+				<h1>Lissajous Curves</h1>
+			</div>
+		</div>
+		<div class="pure-g curves">
+			<div class="pure-u-lg-1-24"></div>
+			<div class="pure-u-1-2 pure-u-lg-15-24" id="canvas-container">
+				<canvas id="canvas" class="canvasStyle"></canvas>
+			</div>
+			<div class="pure-u-lg-1-24"></div>
+			<div class="pure-u-1-2 pure-u-lg-6-24  menu">
+				<div class="pure-u-1 menu-item">
+					<label for="currRatioX">Ratio X (a)</label>
+					<input type="number" id="currRatioX" value="7" min="0.1" max="20">
+					<input class="slider" type="range" id="ratioX" min="0.1" max="20" value="7" step="0.01" />
+					<label><input type="checkbox" id="animateX"> Animate </label>
+
+				</div>
+				<div class="pure-u-1 menu-item">
+					<label for="currRatioY">Ratio Y (b)</label>
+					<input type="number" id="currRatioY" value="6" min="0.1" max="20">
+					<input class="slider" type="range" id="ratioY" min="0.1" max="20" value="6" step="0.01"/>
+					<label><input type="checkbox" id="animateY"> Animate </label>
+				</div>
+
+				<div class="pure-u-1 menu-item">
+					<label for="currPhaseShift">Phase Angle (phi)</label>
+					<div class="input-group suffix">  
+						<input type="number" id="currPhaseShift" value="0" min="0" max="2">                         
+						<span class="input-group-addon ">Pi Radians</span>
+					</div>
+					<input class="slider" type="range" id="phaseShift" min="0" max="2" value="0" step="0.01"/>
+					<label><input type="checkbox" id="animatePhi" checked> Animate </label>
+				</div>
+
+				<div class="pure-u-1 menu-item">
+					<label for="color">Dot Color</label>
+					<input type="color" class="color-picker" id="dotColor" value="#DC143C">
+				</div>
+				<div class="pure-u-1 menu-item">
+					<label for="currDotPhaseShift">Dot Phase Angle</label>
+					<div class="input-group suffix">  
+						<input type="number" id="currDotPhaseShift" value="0" min="0" max="2">                         
+						<span class="input-group-addon ">Pi Radians</span>
+					</div>
+					<input class="slider" type="range" id="dotPhaseShift" min="0" max="2" value="0" step="0.01"/>
+					<label><input type="checkbox" id="animateDot"> Animate </label>
+				</div>
+
+
+				<div class="pure-u-1 menu-item">
+					<label for="currAmpX">Amp X (A)</label>
+					<div class="input-group suffix">                           
+						<input type="number" id="currAmpX" value="100" min="1" max="500">
+						<span class="input-group-addon ">px</span>
+					</div>
+					<input class="slider" type="range" id="ampX" min="1" max="500" value="100" />
+				</div>
+				<div class="pure-u-1 menu-item">
+					<label for="currAmpY">Amp Y (B)</label>
+					<div class="input-group suffix">                           
+						<input type="number" id="currAmpY" value="100" min="1" max="500">
+						<span class="input-group-addon ">px</span>
+					</div>
+					<input class="slider" type="range" id="ampY" min="1" max="500" value="100" />
+				</div>
+
+				<div class="pure-u-1 menu-item">
+					<label for="color">Line Color</label>
+					<input type="color" class="color-picker" id="lineColor" value="#000000">
+				</div>
+				<div class="pure-u-1 menu-item">
+					<label for="currLineWidth">Lindewidth</label>
+					<input type="number" id="currLineWidth" value="1" min="1" max="10">
+					<input class="slider" type="range" id="lineWidth" min="1" max="10" value="1" step="0.5" />
+				</div>
+			</div>
+		</div>
+		<div class="pure-g info">
+			<div class="pure-u-1-24"></div>
+			<div class="pure-u-21-24">
+				<p>
+					Lissajous figure, also called BOWDITCH CURVE, pattern produced by the intersection of two sinusoidal curves the axes of which are at right angles to each other. First studied by the American mathematician Nathaniel Bowditch in 1815, the curves were investigated independently by the French mathematician Jules-Antoine Lissajous in 1857–58. Lissajous used a narrow stream of sand pouring from the base of a compound pendulum to produce the curves.
+
+					<a href="https://www.britannica.com/science/Lissajous-figure">Source</a>
+				</p>
+			</div>
+		</div>
+		<div class="pure-g tutorial">
+			<div class="pure-u-1-24"></div>
+			<div class="pure-u-21-24">
+				<p>
+					This curve is done with these two parametric equasions: <br />
+					x = A * sin(a*t + phi) <br />
+					y = B * sin(b*t) <br />
+
+					x and y are the points on the canvas, which are defined by:
+					The amplitute: A and B, it shows how hard the curve swings.
+					The constants: a and b which determine the number of lobes.
+					t is the constant for time and can not be manipulated in this demo.
+					And finally phi is the phase angle.
+				</p>
+			</div>
+		</div>
+		<div class="pure-g sources">
+			<div class="pure-u-1-24"></div>
+			<div class="pure-u-21-24">
+				<p>
+					The creation of this website was inpsired by: 
+					<a href="https://academo.org/demos/lissajous-curves/">Academo</a>
+					<ul>
+						Other Sources:
+						<li><a href="https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe">stackoverflow</a>
+						<li><a href="https://codepen.io/chamsi/pen/LavooJ">Codepen for designs</a></li>
+						<li><a href="https://www.w3schools.com/howto/howto_js_rangeslider.asp">W3shools for the design of the sliders</a></li>
+						<li><a href="https://purecss.io">PureCSS was used for the responsiveness</a></li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "name": "2021-2022_p11_lissajous",
+  "version": "1.0.0",
+  "description": "PAI Lab assignment #11. HML Canvas API. Event driven Lissajous curves",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@babel/core": "^7.17.4",
+    "@exercism/eslint-config-javascript": "^0.6.0",
+    "@types/jest": "^27.4.1",
+    "@types/node": "^16.11.25",
+    "babel-jest": "^27.5.1",
+    "core-js": "^3.21.1",
+    "eslint": "^8.9.0",
+    "jest": "^27.5.1",
+    "jest-canvas-mock": "^2.4.0",
+    "jsdoc": "^3.6.10"
+  },
+  "scripts": {
+    "jsdoc": "jsdoc -c ./.jsdoc.conf.json",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose ./src/",
+    "stest": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose ./src/__test__",
+    "ptest": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose ./src/practica"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "./src/scripts/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 0
+      }
+    },
+    "setupFiles": [
+      "jest-canvas-mock"
+    ],
+    "testEnvironment": "jest-environment-node",
+    "transform": {}
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-PAI-2021-2022/2021-2022-PAI-P11-Lissajous.git"
+  },
+  "keywords": [],
+  "author": "F. de Sande <fsande@ull.es>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PAI-2021-2022/2021-2022-PAI-P11-Lissajous/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PAI-2021-2022/2021-2022-PAI-P11-Lissajous#readme"
+}
