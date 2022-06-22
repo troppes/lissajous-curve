@@ -51,7 +51,7 @@ export class Lissajous {
   #lineColor;
 
   /**
-    * Create a Lissajous
+    * Create a Lissajous Object
     * @constructor
     * @public
     * @param {string} canvasId - ID of the HTML Canvas Element
